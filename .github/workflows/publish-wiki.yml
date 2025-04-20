@@ -1,0 +1,29 @@
+---
+name: "Publish wiki"
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - wiki/**
+      - .github/workflows/publish-wiki.yml
+
+concurrency:
+  group: "${{ github.workflow }}-${{ github.ref }}"
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Publish wiki
+        uses: Andrew-Chen-Wang/github-wiki-action@v4
+        with:
+          path: wiki/
