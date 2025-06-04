@@ -1,0 +1,76 @@
+---
+name: "Pull wiki"
+
+on:
+  gollum  # When wiki is updated
+
+concurrency:
+  group: "${{ github.workflow }}"
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Clean wiki
+        run: rm -rf wiki
+
+      - name: Checkout wiki
+        run: git clone https://github.com/${{ github.repository }}.wiki.git wiki --depth 1
+
+      - name: Remove wiki git
+        run: rm -rf wiki/.git
+
+      - name: git diff
+        id: diff
+        run: |
+          git add ./wiki/*
+          git diff --staged
+          git diff --color
+
+          # multi-line output
+          echo "diff<<EOF" >> $GITHUB_OUTPUT
+          git diff >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+          if [[ -n "$(git diff --staged)" ]]; then
+            echo "Changes detected"
+            echo "diff<<EOF" >> $GITHUB_OUTPUT
+            git diff --staged >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "No changes detected"
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create/Update Pull Request
+        id: create-pr
+        if: steps.diff.outputs.has_changes == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          add-paths: |
+            wiki/**
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore: sync wiki"
+          branch: bot/sync-wiki
+          delete-branch: true
+          title: "chore: sync wiki"
+          body: |
+            This PR syncs the wiki with the main repository.
+
+      - name: Automerge PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if: steps.create-pr.outputs.pull-request-number != ''
+        run: |
+          gh \
+            pr \
+            merge \
+            --auto \
+            --delete-branch \
+            --squash \
+            "${{ steps.create-pr.outputs.pull-request-number }}"
