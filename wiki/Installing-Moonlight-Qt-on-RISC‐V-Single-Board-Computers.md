@@ -1,4 +1,4 @@
-Beginning with Moonlight Qt v5.0.0, we are now publishing experimental Debian Sid packages for use on single-board computers or other embedded devices. This packages are designed for devices that have standards-compliant V4L2 H.264 and/or HEVC decoders and working DRI drivers.
+Beginning with Moonlight Qt v5.0.0, we are now publishing experimental RISC-V Debian packages for use on single-board computers or other embedded devices. This packages are designed for devices that have standards-compliant V4L2 H.264 and/or HEVC decoders and working DRI drivers.
 
 SBCs often have notoriously bad video and graphics drivers (sometimes requiring special patches to work), so your experience may vary depending on your hardware and which distro you choose.
 
@@ -6,7 +6,7 @@ These packages are designed to be used directly from the console (not inside a d
 
 Requirements:
 - RISC-V board
-- Debian/Armbian Sid
+- Debian/Armbian Trixie
 - Working V4L2 H.264 or HEVC decoder (stateful or stateless)
 - Linux kernel v5.8 or later
 
@@ -21,7 +21,7 @@ Tested non-working devices:
 ## Installation
 Run the following commands to install Moonlight Qt to your device:
 ```
-curl -1sLf 'https://dl.cloudsmith.io/public/moonlight-game-streaming/moonlight-qt/setup.deb.sh' | codename=sid sudo -E bash
+curl -1sLf 'https://dl.cloudsmith.io/public/moonlight-game-streaming/moonlight-qt/setup.deb.sh' | codename=trixie sudo -E bash
 sudo apt install moonlight-qt
 ```
 
