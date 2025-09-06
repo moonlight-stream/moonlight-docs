@@ -5,8 +5,8 @@ ARM SBCs often have notoriously bad video and graphics drivers (sometimes requir
 These packages are designed to be used directly from the console (not inside a desktop environment) for best performance. Newer devices with more powerful GPUs may perform fine within a desktop environment, though certain features like HDR will not work.
 
 Supported distros:
-- Debian/Armbian Bullseye
-- Debian/Armbian Bookworm
+- Debian/Armbian 12 (Bookworm)
+- Debian/Armbian 13 (Trixie)
 - Ubuntu 22.04 (Jammy)
 - Ubuntu 24.04 (Noble)
 
