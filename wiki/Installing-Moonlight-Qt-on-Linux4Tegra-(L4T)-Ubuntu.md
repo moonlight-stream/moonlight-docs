@@ -5,7 +5,7 @@ NOTE: If you installed an earlier preview version of Moonlight Qt prior to v2.0.
 [![Hosted By: Cloudsmith](https://img.shields.io/badge/OSS%20hosting%20by-cloudsmith-blue?logo=cloudsmith&style=for-the-badge)](https://cloudsmith.com)
 
 Requirements:
-* Linux4Tegra OS based on Ubuntu 18.04, Ubuntu 22.04, or Ubuntu 24.04
+* Linux4Tegra OS based on Ubuntu 22.04, or Ubuntu 24.04
 
 ### Installation
 Run the following commands to install Moonlight Qt to your L4T device:
