@@ -80,6 +80,6 @@ If your Raspberry Pi is configured for 4K 60 Hz output, you will need to increas
 
 Run the following commands:
 ```
-echo "gpu_mem=128" | sudo tee -a /boot/config.txt
+echo "gpu_mem=128" | sudo tee -a /boot/firmware/config.txt
 sudo reboot
 ```
