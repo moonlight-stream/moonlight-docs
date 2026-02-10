@@ -31,6 +31,8 @@ Moonlight uses VAAPI, VDPAU, and NVDEC for hardware acceleration on Linux. One o
 
 * For AMD GPU users on Fedora 37 or later, you will need to configure [RPM Fusion Free repositories](https://rpmfusion.org/Configuration) and follow the setup instructions in the "Hardware codecs with AMD" section in [this documentation](https://rpmfusion.org/Howto/Multimedia) to install drivers capable of hardware H.264 and HEVC decoding.
 
+* If you built from source, make sure the desired API's `-dev` package had been installed. After installation, the build configuration must be regenerated via `git clean -fd ; qmake6`
+
 # Steam Deck
 The current Steam OS Preview v3.4 disables H.264 and HEVC hardware decoding functionality. This affects both Moonlight and native Steam Link streaming.
 
