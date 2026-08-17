@@ -19,6 +19,7 @@ Moonlight uses VAAPI, VDPAU, and NVDEC for hardware acceleration on Linux. One o
 * Hardware acceleration support may differ between included libraries within the Flatpak, Snap, and AppImage packages. If you have hardware acceleration issues, trying a different Moonlight package may resolve the issue.
 
 * If you are running Moonlight via AppImage, you will need to ensure the appropriate video acceleration drivers are installed on your system. On Debian-based distros like Ubuntu, run `apt-get install va-driver-all vdpau-driver-all`. On newer Intel hardware, you may need to also run `apt install intel-media-va-driver-non-free`.
+    * The AppImage bundles `libva` but loads VA-API drivers from the host. If the host driver was built against a newer `libva` than the version in the AppImage, hardware decoding will fail. A log message such as `iHD_drv_video.so has no function __vaDriverInit_*` is a sign of this version mismatch. Use the Flatpak or a package built for your distro in this case. See [moonlight-qt#1398](https://github.com/moonlight-stream/moonlight-qt/issues/1398) for details.
 
 * If you installed Moonlight via Flatpak, you may need extra packages to utilize hardware video decoding in Flatpak applications.
     * For AMD GPUs, run `flatpak install flathub org.freedesktop.Platform.GL.default//22.08-extra` to install the required Mesa video codecs.
@@ -30,6 +31,8 @@ Moonlight uses VAAPI, VDPAU, and NVDEC for hardware acceleration on Linux. One o
     * Decoding performance under Wayland may not be as good as X11, so try X11 if you experience performance issues.
 
 * For AMD GPU users on Fedora 37 or later, you will need to configure [RPM Fusion Free repositories](https://rpmfusion.org/Configuration) and follow the setup instructions in the "Hardware codecs with AMD" section in [this documentation](https://rpmfusion.org/Howto/Multimedia) to install drivers capable of hardware H.264 and HEVC decoding.
+
+* Intel GPU users on Fedora may also need the full codec-enabled Intel media driver. Check the `VAEntrypointVLD` profiles reported by `vainfo`. If H.264 or HEVC decoding profiles are missing, configure [RPM Fusion](https://rpmfusion.org/Configuration) and replace Fedora's codec-limited `libva-intel-media-driver` package with RPM Fusion Nonfree's `intel-media-driver` package. Despite the repository name, Intel Media Driver is open source; the package is in the Nonfree repository because it enables patent-encumbered codecs.
 
 # Steam Deck
 The current Steam OS Preview v3.4 disables H.264 and HEVC hardware decoding functionality. This affects both Moonlight and native Steam Link streaming.
