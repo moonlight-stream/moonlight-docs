@@ -4,7 +4,8 @@ name: "Pull wiki"
 on:
   gollum  # When wiki is updated
 
-concurrency:
+concurrency:pull
+
   group: "${{ github.workflow }}"
   cancel-in-progress: true
 
