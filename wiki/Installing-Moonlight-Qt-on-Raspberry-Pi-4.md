@@ -1,7 +1,7 @@
 NOTE: If you installed an earlier preview version of Moonlight Qt prior to v2.0.0, you must switch to the official repository to receive the update to v2.0.0 and future updates. To do so, run the the commands listed in the installation section and then those listed in the updates section.
 
 Requirements:
-- Raspberry Pi 4 or later (earlier Raspberry Pi models may not perform well)
+- Raspberry Pi 2 or later (Pi 2 requires overclocking for decent performance)
 - Raspberry Pi OS 12 (Bookworm) or later
 
 [![Hosted By: Cloudsmith](https://img.shields.io/badge/OSS%20hosting%20by-cloudsmith-blue?logo=cloudsmith&style=for-the-badge)](https://cloudsmith.com)
@@ -17,7 +17,15 @@ You can then launch Moonlight from your Raspberry Pi's desktop or via the `moonl
 
 For best performance, run Moonlight directly from a console/TTY. If you are currently in a desktop environment, you should be able to switch using Ctrl+Alt+(F1-F7). Usually your desktop will be at Ctrl+Alt+F1 or Ctrl+Alt+F7, so you can pick a different TTY that's not being used.
 
-**NOTE**: If you run Moonlight from a desktop environment with the Raspberry Pi 4, we recommend keeping your Raspberry Pi's display resolution set to 1080p or below. Due to GPU performance limitations on the Pi 4, streaming performance decreases significantly when the Moonlight window is scaled larger than 1080p, even if the stream resolution is 1080p or below. These restrictions do not apply when streaming directly from a console/TTY using the steps above.
+**NOTE**: If you run Moonlight from a desktop environment with the Raspberry Pi 4, we recommend keeping your Raspberry Pi's display resolution set to 1080p or below. Due to GPU performance limitations, streaming performance decreases significantly when the Moonlight window is scaled larger than 1080p, even if the stream resolution is 1080p or below. These restrictions do not apply when streaming directly from a console/TTY using the steps above.
+
+### Raspberry Pi 2 Performance
+
+The Raspberry Pi 2's GPU and H.264 decoder run at 250 MHz by default, which is not fast enough to decode 1080p streams.
+
+To improve performance, open `/boot/firmware/config.txt` and add a new line `gpu_freq_min=400` at the bottom.
+
+Since the Pi 2 and 3 lack high performance GPUs, it's strongly recommended to stream from the console/TTY instead of within the desktop environment. You may experience severe performance degradation when streaming above 720p within the desktop environment.
 
 ### Audio on Raspberry Pi OS Lite
 
@@ -74,6 +82,15 @@ The most common issue is simply failing to configure the default audio device pr
 If you've set your audio device and Moonlight still cannot output audio, you can try an alternate SDL audio driver using the following commands:
 - `SDL_AUDIODRIVER=alsa moonlight-qt`
 - `SDL_AUDIODRIVER=pulseaudio moonlight-qt`
+
+### Audio crackles or glitches
+
+The default PulseAudio SDL audio driver may cause audio crackling or dropouts with certain audio devices.
+
+You can try manually requesting the PipeWire driver by launching Moonlight using the following command:
+```
+SDL_AUDIODRIVER=pipewire moonlight-qt
+```
 
 ### Decoder Errors with a 4K 60 Hz Monitor
 If your Raspberry Pi is configured for 4K 60 Hz output, you will need to increase the amount of GPU memory for the hardware video decoder to work.
