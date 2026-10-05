@@ -238,7 +238,7 @@ If you are lucky enough to have native IPv6 connectivity to your host gaming PC,
 
 3. If your router has an IPv6 firewall, you may need to create IPv6 firewall rules on your router to allow TCP ports 47984-48010 and UDP ports 47998-48010 through the firewall. The GameStream IPv6 Forwarder will create the rules for you if possible, but not many routers support this feature. If your IPv6 Moonlight connection is failing, this is most likely the reason.
 
-4. If Moonlight already found your gaming PC automatically while on the same network, it should connect to your PC over IPv6 without any additional steps. If you haven't already paired to your gaming PC while on the same network, click Add PC and type the IPv6 address of your host gaming PC.
+4. If Moonlight already found your gaming PC automatically while on the same network, it should connect to your PC over IPv6 without any additional steps. If you haven't already paired to your gaming PC while on the same network, click Add PC and type the IPv6 address of your host gaming PC, surrounded by `[` and `]`.
 
 All officially supported Moonlight clients (iOS/tvOS, PC, Android) support streaming from servers over IPv6. Unofficial clients (Embedded, Vita) may not.
 
