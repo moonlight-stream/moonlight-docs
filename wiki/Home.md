@@ -1,4 +1,4 @@
-<a href="https://moonlight-stream.org/discord"><img src="https://moonlight-stream.org/images/discord.png" height="70" alt="Join our Discord"></a>
+<a href="https://moonlight-stream.org/discord">Join our Discord</a>
 
 ## Introduction
 Welcome to **Moonlight** - the open source client implementation of NVIDIA GameStream that allows you to to stream your collection of games and apps from your GameStream-compatible PC to another device.

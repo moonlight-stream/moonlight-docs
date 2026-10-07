@@ -1,4 +1,4 @@
-<a href="https://moonlight-stream.org/discord"><img src="https://moonlight-stream.org/images/discord.png" height="70" alt="Join our Discord"></a>
+<a href="https://moonlight-stream.org/discord">Join our Discord</a>
 
 # Multiple connections error
 If you get this warning, your host PC is probably connected to your home network via both WiFi and Ethernet. This can cause connection issues with NVIDIA GameStream. Disconnect one of the connections (preferably the WiFi connection), then try again.
