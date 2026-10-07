@@ -1,6 +1,6 @@
 **Talk to Us!**
 
-<a href="https://moonlight-stream.org/discord"><img src="https://moonlight-stream.org/images/discord.png" height="70" alt="Join our Discord"></a>
+<a href="https://moonlight-stream.org/discord">Join our Discord</a>
 
 **[Discord](https://moonlight-stream.org/discord)**: Keep up with Moonlight developments and get in touch with the developers and other users. This is the recommended way to get the fastest help, since many people can answer your questions.
 

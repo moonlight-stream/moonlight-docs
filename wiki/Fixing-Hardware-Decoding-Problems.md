@@ -1,4 +1,4 @@
-<a href="https://moonlight-stream.org/discord"><img src="https://moonlight-stream.org/images/discord.png" height="70" alt="Join our Discord"></a>
+<a href="https://moonlight-stream.org/discord">Join our Discord</a>
 
 # Windows
 Moonlight uses either DXVA2 or D3D11VA for hardware acceleration on Windows, depending on hardware support and OS version. All modern GPUs from AMD, NVIDIA, and Intel should support hardware decoding of H.264 via DXVA2 or D3D11VA with the proper drivers installed.

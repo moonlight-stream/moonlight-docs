@@ -2,7 +2,7 @@ _These troubleshooting checklists contain various suggestions to solve each pote
 
 You can chat with Moonlight developers and other users to help you resolve streaming issues on our Discord server.
 
-<a href="https://moonlight-stream.org/discord"><img src="https://moonlight-stream.org/images/discord.png" height="70" alt="Join our Discord"></a>
+<a href="https://moonlight-stream.org/discord">Join our Discord</a>
 
 Look at the troubleshooting steps for each of the following issues: 
 

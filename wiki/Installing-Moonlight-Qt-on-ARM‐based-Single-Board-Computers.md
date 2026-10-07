@@ -9,6 +9,7 @@ Supported distros:
 - Debian/Armbian 13 (Trixie)
 - Ubuntu 22.04 (Jammy)
 - Ubuntu 24.04 (Noble)
+- Ubuntu 26.04 (Resolute)
 
 Other requirements:
 - 32-bit ARMv7 or 64-bit ARMv8 (armhf or aarch64)
@@ -18,10 +19,11 @@ Other requirements:
 Tested working devices:
 - Asus Tinkerboard (RK3388) - Armbian Bookworm 
 - Orange Pi 4 LTS (RK3399) - Armbian Bookworm
+- ROCKPro64 (RK3399) - Armbian Noble
+- NanoPi R6S (RK3588) - Armbian Trixie
 
 Tested non-working devices:
 - **Raspberry Pi - [Use this build instead](https://github.com/moonlight-stream/moonlight-docs/wiki/Installing-Moonlight-Qt-on-Raspberry-Pi-4)**
-- NanoPi R6S (RK3588 currently lacks V4L2 drivers)
 
 [![Hosted By: Cloudsmith](https://img.shields.io/badge/OSS%20hosting%20by-cloudsmith-blue?logo=cloudsmith&style=for-the-badge)](https://cloudsmith.com)
 
