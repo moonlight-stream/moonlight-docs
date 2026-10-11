@@ -76,6 +76,10 @@ Look at the troubleshooting steps for each of the following issues:
     * If you just type "Mouse key" into the Start Menu search dialog, it should take you to the correct settings page.
 * Ask for help on our [Discord server](https://moonlight-stream.org/discord)
 
+### Can't move mouse cursor across whole screen
+* Some desktop environments that force window sizes (Sway, etc.) can affect the mouse input when running with "Optimize mouse for remote desktop instead of games" enabled.
+* For now - a workaround is to press ctrl-alt-shift-M to enable the setting after the moonlight window is in your desired configuration.
+
 ### Video only displays in the top left corner of the stream
 * Use the NVIDIA Control Panel to set your desired display resolution, not Windows Display Settings
    * If your resolution is already set to the desired value, change it to something else and back again using NVIDIA Control Panel.
