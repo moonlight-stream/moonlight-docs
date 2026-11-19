@@ -29,6 +29,9 @@ No, while there is a ChromeOS app that runs on Chromebooks, there is not a pure 
 
 While we would like to offer a web-based client as an option, we believe that native apps currently provide the most feature-rich and performant clients. Optimizations like changing the display refresh rate to match the stream frame rate, communicating with gamepads that aren't natively supported by the OS or browser, and using full-screen exclusive mode for lower latency are not currently available to web apps. Web browsers are also often forced to make tradeoffs to cater to the most common use-cases at the expense of others. For example, a design tradeoff for better battery life for video playback or smoother web animations might result in an increase to rendering latency.
 
+# How do I exit a fullscreen moonlight session?
+Press CTRL + ALT + SHIFT + Q
+
 ## Can I stream from my PC while outside my house?
 
 Yes, for many ISPs, it's as simple as [installing the Moonlight Internet Hosting Tool on your PC](https://github.com/moonlight-stream/moonlight-docs/wiki/Setup-Guide#automatic-configuration-recommended-for-most-users).
